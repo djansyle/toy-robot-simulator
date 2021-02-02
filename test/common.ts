@@ -1,9 +1,9 @@
 import sinon from 'sinon';
 
-before(function () {
+beforeEach(function () {
   this.sandbox = sinon.createSandbox();
 });
 
-after(function () {
+afterEach(function () {
   (this.sandbox as sinon.SinonSandbox).restore();
 });
