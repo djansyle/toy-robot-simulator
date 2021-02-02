@@ -249,8 +249,8 @@ describe('Robot Class', function () {
   });
 
   describe('#report', function () {
-    it('SHOULD return empty string, WHEN not placed', function () {
-      expect(new Robot().report()).to.equal('');
+    it('SHOULD throw OperationError, WHEN not placed', function () {
+      expect(() => new Robot().report()).to.throw(OperationError);
     });
 
     it('SHOULD return the correct report', function () {

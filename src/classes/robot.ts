@@ -101,7 +101,7 @@ export default class Robot {
 
   public report() {
     if (!this.coordinates || !this.facing) {
-      return '';
+      throw new OperationError();
     }
 
     return `${this.coordinates.x},${this.coordinates.y},${this.facing}`;
