@@ -5,6 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "npm run clean && tsc --project tsconfig.build.json && tscpaths -p tsconfig.build.json -s ./src -o ./build",
+    "start": "node build/index.js",
     "clean": "rimraf build/",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix --cache",
