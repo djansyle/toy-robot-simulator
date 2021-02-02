@@ -10,11 +10,12 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix --cache",
     "typecheck": "tsc --noEmit",
-    "test": "mocha test/**/*.spec.ts"
+    "test": "mocha"
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
+    "@types/sinon": "^9.0.10",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "chai": "^4.2.0",
@@ -28,6 +29,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "mocha": "^8.2.1",
     "prettier": "^2.2.1",
+    "sinon": "^9.2.4",
     "ts-node": "^9.1.1",
     "tscpaths": "0.0.9",
     "typescript": "^4.1.3"
