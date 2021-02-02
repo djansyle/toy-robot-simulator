@@ -54,7 +54,7 @@ export default class Robot {
    * @throws {OperationError}
    */
   public place(coordinates: Coordinates, facing: FacingDirection) {
-    this.checkCoordinates(coordinates);
+    Robot.checkCoordinates(coordinates);
 
     const clone = this.clone();
     clone.coordinates = coordinates;
@@ -68,7 +68,7 @@ export default class Robot {
    * @param {Coordinates}
    * @throws {OperationError} when the coordinates will be out of bounds.
    */
-  private checkCoordinates({ x, y }: Coordinates) {
+  private static checkCoordinates({ x, y }: Coordinates) {
     if (x > 5 || x < 0 || y > 5 || y < 0) {
       throw new OperationError();
     }
@@ -118,7 +118,7 @@ export default class Robot {
     );
 
     // Check whether the new coordinates are valid
-    this.checkCoordinates(newCoordinates);
+    Robot.checkCoordinates(newCoordinates);
 
     const clone = this.clone();
     clone.coordinates = newCoordinates;

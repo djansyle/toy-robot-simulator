@@ -16,7 +16,7 @@ describe('Robot Class', function () {
   describe('#place', function () {
     beforeEach(async function () {
       this.checkCoordinateStub = (this.sandbox as sinon.SinonSandbox).stub(
-        this.robot,
+        Robot as any,
         'checkCoordinates',
       );
 
@@ -56,7 +56,7 @@ describe('Robot Class', function () {
         new Coordinates(0, 6),
         new Coordinates(6, 6),
       ].forEach((coords) => {
-        expect(() => this.robot.checkCoordinates(coords)).to.be.throw(
+        expect(() => (Robot as any).checkCoordinates(coords)).to.be.throw(
           OperationError,
         );
       });
