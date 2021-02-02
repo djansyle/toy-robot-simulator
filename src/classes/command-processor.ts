@@ -3,13 +3,17 @@ import EventEmitter from 'events';
 import Coordinates from './coordinates';
 import Robot from './robot';
 
+/**
+ * Process and validates the commands that will be issued to the robot
+ * @class
+ */
 export default class CommandProcessor extends EventEmitter {
   private robot: Robot = new Robot();
 
   /**
    * Parses and process the command to the robot.
    * @param {string} command
-   * @emits {string}
+   * @emits {string} message from the robot
    */
   process(command: string) {
     const match = /PLACE (\d+),(\d+),(.+)/gm.exec(command);

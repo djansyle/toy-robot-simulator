@@ -23,11 +23,17 @@ const MoveDirectionDeltaMap: { [key in FacingDirection]: Coordinates } = {
   [FacingDirection.West]: new Coordinates(-1, 0),
 };
 
+/**
+ * Robot that will be placed or moved to the plane with 5x5 size.
+ */
 export default class Robot {
   private coordinates?: Coordinates;
 
   private facing?: FacingDirection;
 
+  /**
+   * Creates a deep copy of the current instance
+   */
   public clone() {
     const robot = new Robot();
     if (this.coordinates) {
@@ -41,6 +47,12 @@ export default class Robot {
     return robot;
   }
 
+  /**
+   * Places the robots to the given `coordinates` and `facing` direction
+   * @param {Coordinates} coordinates
+   * @param {FacingDirection} facing
+   * @throws {OperationError}
+   */
   public place(coordinates: Coordinates, facing: FacingDirection) {
     this.checkCoordinates(coordinates);
 
@@ -51,12 +63,22 @@ export default class Robot {
     return clone;
   }
 
+  /**
+   * Checks the given coordinates whether it's a valid or not.
+   * @param {Coordinates}
+   * @throws {OperationError} when the coordinates will be out of bounds.
+   */
   private checkCoordinates({ x, y }: Coordinates) {
     if (x > 5 || x < 0 || y > 5 || y < 0) {
       throw new OperationError();
     }
   }
 
+  /**
+   * Turns the robot 90 degrees for right and -90 degrees for left
+   * @param {TurnDirection} direction
+   * @throws {OperationError}
+   */
   public turn(direction: TurnDirection) {
     if (!this.facing) {
       throw new OperationError();
@@ -81,6 +103,10 @@ export default class Robot {
     return clone;
   }
 
+  /**
+   * Moves the robot 1 unit forward
+   * @throws {OperationError}
+   */
   public move() {
     // Cannot move when it's not placed yet
     if (!this.coordinates || !this.facing) {
@@ -99,6 +125,10 @@ export default class Robot {
     return clone;
   }
 
+  /**
+   * Get the current position and facing of the robot
+   * @throws {OperationError}
+   */
   public report() {
     if (!this.coordinates || !this.facing) {
       throw new OperationError();
